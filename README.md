@@ -22,3 +22,4 @@ Instructions:
 
 7. Analyze the data as it pertains to your research. 
 
+**NOTE** if you recieve this error message: 'tweepy.error.TweepError: Twitter error response: status code = 429', the program is NOT broken- it simply means that the Tweepy data limit has been reached. If you wait for 15 minutes, the limit will be reset and you can test the code again. 
