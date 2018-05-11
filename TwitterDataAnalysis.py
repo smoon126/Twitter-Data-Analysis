@@ -34,7 +34,7 @@ class TweetTimeZoneData:
         self.data = {}
         self.get_data_batch()
 
-    # Retrieving data
+    # Retrieving data from Twitter
     def get_data_batch(self):
         self.data = {}
 
@@ -43,6 +43,7 @@ class TweetTimeZoneData:
         while data_length < self.data_points:
             data_batch = tweepy.Cursor(self.api.search, q=self.query, lang='en', show_user='true').items(1000)
 
+            # Checking for duplicates using try/except
             for tweet in data_batch:
                 try:
                     # If the tweet is not an original tweet or if it has been viewed before, it is ignored
@@ -50,6 +51,7 @@ class TweetTimeZoneData:
                             or tweet.retweeted_status.text is not None:
                         pass
                 except AttributeError:
+                    # Entering valid data into dictionaries
                     if data_length < self.data_points:
                         if tweet.author.time_zone not in self.data:
                             self.data[tweet.author.time_zone] = [{tweet.author.screen_name: tweet.text}]
@@ -62,7 +64,7 @@ class TweetTimeZoneData:
 
     '''Everything from here up was written by Grace, everything below was written by Sam'''
 
-    # Entering data into output file
+    # Entering data into csv output file
     def create_tweet_by_timezone_csv(self):
         csv_columns = ['Timezone', 'Screen Name', 'Tweet Text']
 
@@ -76,7 +78,7 @@ class TweetTimeZoneData:
 
             self.counter0 += 1
 
-    # Entering data into output file
+    # Entering data into csv output file
     def create_timezone_frequency_csv(self):
         csv_columns = ['Timezone', 'Frequency']
 
@@ -98,6 +100,7 @@ while int(num_entries) <= 0:
     print("Please enter non-zero value.")
     num_entries = input("How many entries do you want: ")
 
+# Creating instance of class and calling functions
 x = TweetTimeZoneData(user_query, int(num_entries))
 x.create_timezone_frequency_csv()
 x.create_tweet_by_timezone_csv()
