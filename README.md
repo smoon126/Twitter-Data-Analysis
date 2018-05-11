@@ -1,8 +1,7 @@
 INST326 Final Project 
-
-Twitter Data Anaysis
-
 Sam Moon and Grace Zhang
+
+                                                        Twitter Data Anaysis
 
 The purpose of the program we have written is to create a tool to aide with research about social movement phenomemons. Our program allows users to search for recent trending social movements on Twitter, such as #BlackLivesMatter, #MeToo, #TimesUp, etc. Our program scrapes recent data from Twitter using the Tweepy module, and sorts through the data to find the location, frequency of location, user screen name and the relevant tweet containing the hashtag. Allowing the user to see the location and frequency of hashtags will give researchers an important perspective on what influences participation in specific social trends. This tool is extremely relevant and useful given our current political climate. 
 
