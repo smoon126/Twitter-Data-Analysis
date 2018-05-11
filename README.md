@@ -20,5 +20,5 @@ Instructions:
 
 6. Open 'tweets_by_timezone': it will display the timezone, screen name of the Twitter user, and their tweet containing the hashtag. 
 
-7. Analyze data as it pertains to your research. 
+7. Analyze the data as it pertains to your research. 
 
